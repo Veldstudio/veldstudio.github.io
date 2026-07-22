@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VELD">
+  <rect width="64" height="64" fill="#1C1C1A"/>
+  <polyline points="16,18 32,46 48,18" fill="none" stroke="#D4C5A9" stroke-width="4.5" stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>
