@@ -1,18 +1,877 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Veld — Marketing para clínicas estéticas que llenan la agenda</title>
-    <meta
-      name="description"
-      content="Veld convierte el marketing de tu clínica estética en un sistema: contenido que atrae, automatización que responde y una marca que se ve al nivel de tu servicio."
-    />
-    <meta name="theme-color" content="#f5f2ec" />
-    <script type="module" crossorigin src="/assets/index-B6cjzDOb.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CGhEHNnL.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veld — Brand & Content Strategy Studio</title>
+  <meta name="description" content="Estrategia de marca y contenido para negocios que quieren crecer con criterio. Uruguay / Latam."/>
+  <meta property="og:title" content="Veld — Brand & Content Strategy Studio"/>
+  <meta property="og:description" content="Marcas que no se pueden ignorar."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    :root{
+      --obsidian:#1c1c1a;
+      --warm-sand:#d4c5a9;
+      --stone-white:#f5f2ec;
+      --ash:#8c8070;
+      --light-stone:#ede9e1;
+      --white:#ffffff;
+      --ease-expo:cubic-bezier(0.16,1,0.3,1);
+    }
+    body{background:var(--obsidian);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+
+    /* GRAIN */
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:8500;opacity:.032;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:180px 180px;}
+
+    /* CURSOR */
+    #cur-o,#cur-i{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);will-change:transform;}
+    #cur-o{width:44px;height:44px;border:1px solid rgba(212,197,169,.5);mix-blend-mode:difference;transition:width .35s var(--ease-expo),height .35s var(--ease-expo);}
+    #cur-i{width:7px;height:7px;background:var(--warm-sand);}
+
+    /* LOADER */
+    #loader{position:fixed;inset:0;background:var(--obsidian);z-index:8000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+    #loader-word{font-family:'Anton',sans-serif;font-size:clamp(80px,16vw,180px);letter-spacing:-.03em;text-transform:lowercase;color:var(--white);}
+    #loader-bar{width:200px;height:1px;background:rgba(255,255,255,.1);position:relative;overflow:hidden;}
+    #loader-prog{position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--warm-sand);}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference;}
+    .nav-logo{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:-.02em;text-transform:lowercase;color:var(--white);text-decoration:none;}
+    .nav-right{display:flex;align-items:center;gap:40px;}
+    .nav-link{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--white);text-decoration:none;opacity:.55;transition:opacity .25s;}
+    .nav-link:hover{opacity:1;}
+    .nav-cta{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px;transition:border-color .25s;}
+    .nav-cta:hover{border-color:var(--white);}
+
+    /* ── HERO — tipográfico, sin video ── */
+    #hero{min-height:100svh;background:var(--obsidian);position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+    .hero-img-bg{position:absolute;right:0;top:0;bottom:0;width:52%;z-index:0;}
+    .hero-img-bg img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(25%) brightness(.55);}
+    .hero-img-fade{position:absolute;inset:0;background:linear-gradient(to right,var(--obsidian) 42%,transparent 100%);z-index:1;}
+    .hero-content{position:relative;z-index:2;padding:0 48px 56px;}
+    .hero-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,197,169,.7);margin-bottom:24px;}
+    .hero-h1{font-family:'Anton',sans-serif;font-size:clamp(72px,13vw,200px);line-height:.88;letter-spacing:-.025em;text-transform:lowercase;color:var(--white);max-width:850px;}
+    .hero-h1 .line{display:block;overflow:hidden;}
+    .hero-h1 .line-inner{display:block;}
+    .hero-sub{margin-top:44px;display:flex;align-items:flex-start;gap:56px;max-width:760px;}
+    .hero-sub-text{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.2vw,32px);font-style:italic;font-weight:300;color:var(--warm-sand);line-height:1.35;}
+    .hero-sub-aside{padding-top:6px;font-size:11px;line-height:2.1;color:rgba(212,197,169,.5);border-left:1px solid rgba(212,197,169,.2);padding-left:24px;flex-shrink:0;}
+    .hero-bottom{position:relative;z-index:2;display:flex;align-items:center;gap:16px;padding:0 48px 48px;}
+    .hero-scroll-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,197,169,.45);}
+    .hero-scroll-track{width:60px;height:1px;background:rgba(212,197,169,.15);position:relative;overflow:hidden;}
+    .hero-scroll-thumb{position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--warm-sand);animation:scrollThumb 2s var(--ease-expo) infinite;}
+    @keyframes scrollThumb{0%{left:-100%;}100%{left:100%;}}
+    .hero-bg-word{position:absolute;bottom:-.12em;right:-.04em;font-family:'Anton',sans-serif;font-size:clamp(180px,30vw,460px);letter-spacing:-.04em;text-transform:lowercase;color:rgba(255,255,255,.03);pointer-events:none;user-select:none;line-height:1;z-index:1;}
+
+    /* MARQUEE */
+    .marquee-wrap{background:var(--warm-sand);padding:18px 0;overflow:hidden;display:flex;}
+    .marquee-track{display:flex;white-space:nowrap;animation:marquee 32s linear infinite;will-change:transform;}
+    .marquee-item{font-family:'Anton',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--obsidian);padding:0 52px;display:flex;align-items:center;gap:52px;}
+    .marquee-item::after{content:'·';font-size:20px;}
+    @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    .marquee-wrap:hover .marquee-track{animation-play-state:paused;}
+
+    /* MANIFESTO */
+    #manifesto{position:relative;overflow:hidden;background:var(--obsidian);}
+    .manifesto-layout{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;}
+    .manifesto-img-col{position:relative;overflow:hidden;}
+    .manifesto-img-col img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(15%) brightness(.75);display:block;}
+    .manifesto-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--obsidian) 100%);}
+    .manifesto-text-col{padding:100px 64px 100px 48px;display:flex;flex-direction:column;justify-content:center;}
+    .manifesto-num{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,197,169,.5);margin-bottom:48px;}
+    .manifesto-h{font-family:'Anton',sans-serif;font-size:clamp(34px,4.5vw,68px);line-height:1.0;letter-spacing:-.02em;color:var(--white);margin-bottom:48px;}
+    .manifesto-h .serif{font-family:'Cormorant Garamond',serif;font-size:.85em;font-style:italic;font-weight:300;color:var(--warm-sand);display:block;margin-top:8px;}
+    .manifesto-p{font-size:15px;line-height:1.9;color:rgba(255,255,255,.55);margin-bottom:28px;}
+    .manifesto-pull{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2vw,26px);font-style:italic;color:var(--warm-sand);line-height:1.4;border-left:2px solid rgba(212,197,169,.3);padding-left:22px;margin-top:36px;}
+
+    /* VIDEO BREAK — sección de transición */
+    #video-break{position:relative;height:65vh;overflow:hidden;}
+    #video-break video{width:100%;height:100%;object-fit:cover;display:block;}
+    .vb-overlay{position:absolute;inset:0;background:rgba(28,28,26,.38);}
+    .vb-label{position:absolute;bottom:32px;left:48px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+
+    /* CASES */
+    #cases{background:var(--obsidian);padding:100px 0 0;}
+    .cases-top{padding:0 48px 56px;display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07);}
+    .cases-left{}
+    .cases-h{font-family:'Anton',sans-serif;font-size:clamp(44px,7vw,100px);letter-spacing:-.025em;text-transform:lowercase;color:var(--white);}
+    .cases-intro{font-size:14px;line-height:1.8;color:rgba(255,255,255,.45);max-width:320px;margin-top:16px;}
+    .cases-count{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);padding-bottom:8px;}
+    /* Horizontal scroll strip */
+    .cases-strip-wrap{overflow-x:scroll;overflow-y:hidden;position:relative;padding:64px 0 80px;scrollbar-width:none;-ms-overflow-style:none;}
+    .cases-strip-wrap::-webkit-scrollbar{display:none;}
+    .cases-strip{display:flex;gap:24px;padding:0 48px;cursor:grab;user-select:none;}
+    .cases-strip:active{cursor:grabbing;}
+    .case-card{flex-shrink:0;width:440px;position:relative;overflow:hidden;background:#232320;}
+    .case-card-img{width:100%;height:520px;object-fit:cover;display:block;filter:grayscale(20%);transition:filter .7s,transform .7s;}
+    .case-card:hover .case-card-img{filter:grayscale(0%);transform:scale(1.04);}
+    .case-card-body{position:absolute;bottom:0;left:0;right:0;padding:36px;background:linear-gradient(to top,rgba(28,28,26,.97) 0%,rgba(28,28,26,.4) 100%);}
+    .case-card-n{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin-bottom:12px;}
+    .case-card-name{font-family:'Anton',sans-serif;font-size:34px;text-transform:lowercase;letter-spacing:-.015em;color:var(--white);margin-bottom:6px;}
+    .case-card-cat{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(212,197,169,.5);margin-bottom:16px;}
+    .case-card-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:20px;}
+    .case-card-metric{font-family:'Anton',sans-serif;font-size:44px;color:var(--warm-sand);letter-spacing:-.02em;line-height:1;}
+    .case-card-metric-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);margin-top:5px;}
+    .cases-drag-hint{padding:0 48px 48px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);display:flex;align-items:center;gap:12px;}
+    .cases-drag-hint::before{content:'';display:block;width:40px;height:1px;background:var(--ash);}
+
+    /* GALLERY STRIP */
+    #gallery{background:var(--obsidian);padding:0 0 100px;overflow:hidden;}
+    .gallery-label{padding:0 48px 40px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);}
+    .gallery-strip{display:flex;gap:14px;animation:galleryScroll 42s linear infinite;width:max-content;}
+    .gallery-strip:hover{animation-play-state:paused;}
+    .gallery-img{height:340px;width:auto;object-fit:cover;filter:grayscale(25%) brightness(.85);transition:filter .5s,transform .5s;}
+    .gallery-img:hover{filter:grayscale(0%) brightness(1);transform:scale(1.02);}
+    @keyframes galleryScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+    /* SERVICES */
+    #services{background:var(--light-stone);padding:120px 48px 140px;}
+    .services-header{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid rgba(28,28,26,.12);margin-bottom:2px;}
+    .services-h{font-family:'Anton',sans-serif;font-size:clamp(44px,7vw,100px);letter-spacing:-.025em;text-transform:lowercase;color:var(--obsidian);}
+    .services-intro{font-size:13px;line-height:1.8;color:var(--ash);max-width:260px;padding-bottom:8px;}
+    .services-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(28,28,26,.1);margin-top:1px;}
+    /* cards */
+    .svc{background:var(--light-stone);padding:52px 40px 60px;transition:background .4s var(--ease-expo);position:relative;overflow:hidden;}
+    .svc:hover{background:var(--obsidian);}
+    .svc-n{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin-bottom:28px;transition:color .4s;}
+    .svc-title{font-family:'Anton',sans-serif;font-size:clamp(28px,3vw,44px);letter-spacing:-.02em;text-transform:lowercase;color:var(--obsidian);margin-bottom:18px;transition:color .4s;}
+    .svc:hover .svc-title{color:var(--white);}
+    .svc-desc{font-size:13px;line-height:1.8;color:var(--ash);max-width:280px;transition:color .4s;}
+    .svc:hover .svc-desc{color:rgba(212,197,169,.6);}
+    .svc-items{margin-top:20px;display:flex;flex-direction:column;gap:6px;}
+    .svc-item{font-size:12px;letter-spacing:.06em;color:var(--ash);transition:color .4s;padding-left:12px;position:relative;}
+    .svc-item::before{content:'→';position:absolute;left:0;font-size:10px;}
+    .svc:hover .svc-item{color:rgba(212,197,169,.5);}
+    .svc-bg-n{position:absolute;bottom:-.2em;right:-.05em;font-family:'Anton',sans-serif;font-size:130px;letter-spacing:-.05em;color:rgba(28,28,26,.05);line-height:1;pointer-events:none;transition:color .4s;}
+    .svc:hover .svc-bg-n{color:rgba(255,255,255,.03);}
+    /* Wide producción */
+    .svc-wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0;background:transparent;}
+    .svc-wide-img{overflow:hidden;position:relative;}
+    .svc-wide-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%);transition:filter .7s,transform .7s;display:block;}
+    .svc-wide:hover .svc-wide-img img{filter:grayscale(0%);transform:scale(1.04);}
+    /* VIDEO INSET — producción (no painel escuro da direita) */
+    .svc-inset-video{position:absolute;top:50%;right:28px;transform:translateY(-50%) scale(.95);width:clamp(140px,24%,210px);aspect-ratio:9/16;border:1px solid rgba(212,197,169,.3);box-shadow:0 16px 56px rgba(0,0,0,.7);z-index:10;overflow:hidden;background:#000;opacity:0;transition:opacity .6s var(--ease-expo),transform .6s var(--ease-expo);}
+    .svc-wide:hover .svc-inset-video{opacity:1;transform:translateY(-50%) scale(1);}
+    .svc-inset-video video{width:100%;height:100%;object-fit:cover;display:block;}
+    .svc-inset-label{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(212,197,169,.7);}
+    .svc-wide-body{background:var(--light-stone);padding:52px 40px 60px;transition:background .4s;position:relative;overflow:hidden;}
+    .svc-wide:hover .svc-wide-body{background:var(--obsidian);}
+    .svc-wide:hover .svc-wide-body .svc-n{color:rgba(212,197,169,.5);}
+    .svc-wide:hover .svc-wide-body .svc-title{color:var(--white);}
+    .svc-wide:hover .svc-wide-body .svc-desc{color:rgba(212,197,169,.6);}
+    .svc-wide:hover .svc-wide-body .svc-item{color:rgba(212,197,169,.5);}
+    .svc-tag{display:inline-block;margin-top:24px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:var(--warm-sand);color:var(--obsidian);padding:7px 16px;}
+
+    /* ABOUT */
+    #about{background:var(--obsidian);padding:120px 48px 140px;}
+    /* ABOUT — solo, sem foto */
+    .about-solo{max-width:1200px;margin:0 auto;}
+    .about-cols{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:40px;}
+    .about-col-left,.about-col-right{}
+    .about-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin-bottom:36px;}
+    .about-h{font-family:'Anton',sans-serif;font-size:clamp(32px,4.2vw,58px);letter-spacing:-.02em;text-transform:lowercase;color:var(--white);margin-bottom:32px;line-height:1.02;}
+    .about-p{font-size:15px;line-height:1.9;color:rgba(255,255,255,.52);margin-bottom:20px;}
+    .about-pull{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.2vw,28px);font-style:italic;color:var(--warm-sand);line-height:1.4;margin-top:40px;border-left:2px solid rgba(212,197,169,.3);padding-left:22px;}
+    .about-numbers{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;border-top:1px solid rgba(255,255,255,.07);padding-top:40px;}
+    .about-num-n{font-family:'Anton',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--warm-sand);letter-spacing:-.02em;line-height:1;}
+    .about-num-lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-top:6px;}
+
+    /* PROCESS */
+    #process{background:var(--stone-white);padding:120px 48px 140px;position:relative;overflow:hidden;}
+    .process-img-bg{position:absolute;right:0;top:0;bottom:0;width:40%;z-index:0;}
+    .process-img-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%) brightness(.9);}
+    .process-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--stone-white) 52%,transparent 100%);}
+    .process-content{position:relative;z-index:2;max-width:54%;}
+    .process-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin-bottom:48px;}
+    .process-h{font-family:'Anton',sans-serif;font-size:clamp(44px,7vw,96px);letter-spacing:-.025em;text-transform:lowercase;color:var(--obsidian);margin-bottom:72px;}
+    .step-row{display:grid;grid-template-columns:60px 1fr;gap:28px;align-items:start;padding:36px 0;border-bottom:1px solid rgba(28,28,26,.1);}
+    .step-row:first-child{border-top:1px solid rgba(28,28,26,.1);}
+    .step-n{font-family:'Anton',sans-serif;font-size:44px;color:rgba(28,28,26,.1);letter-spacing:-.03em;line-height:1;padding-top:4px;}
+    .step-title{font-family:'Anton',sans-serif;font-size:clamp(20px,2.2vw,30px);text-transform:lowercase;letter-spacing:-.015em;color:var(--obsidian);margin-bottom:10px;}
+    .step-desc{font-size:14px;line-height:1.8;color:var(--ash);}
+
+    /* LANDING & WEB section */
+    #landing-web{background:var(--obsidian);padding:120px 0 140px;}
+    .lw-top{padding:0 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;}
+    .lw-h{font-family:'Anton',sans-serif;font-size:clamp(44px,7vw,100px);letter-spacing:-.025em;text-transform:lowercase;color:var(--white);line-height:.92;}
+    .lw-right{}
+    .lw-tag{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:var(--warm-sand);color:var(--obsidian);padding:7px 16px;margin-bottom:20px;}
+    .lw-desc{font-size:15px;line-height:1.85;color:rgba(255,255,255,.52);margin-bottom:28px;}
+    .lw-list{display:flex;flex-direction:column;gap:8px;margin-bottom:36px;}
+    .lw-item{font-size:12px;letter-spacing:.08em;color:rgba(212,197,169,.6);padding-left:16px;position:relative;}
+    .lw-item::before{content:'→';position:absolute;left:0;font-size:10px;color:var(--warm-sand);}
+    .lw-cta{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--white);border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:3px;text-decoration:none;transition:border-color .25s;}
+    .lw-cta:hover{border-color:var(--white);}
+    /* screenshot grid */
+    .lw-screens{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:rgba(255,255,255,.04);}
+    .lw-screen{overflow:hidden;position:relative;}
+    .lw-screen img{width:100%;height:320px;object-fit:cover;object-position:top;display:block;filter:brightness(.85);transition:filter .6s,transform .7s;}
+    .lw-screen:hover img{filter:brightness(1);transform:scale(1.03);}
+    .lw-screen.featured{grid-column:1/-1;}
+    .lw-screen.featured img{height:420px;}
+    .lw-screen-label{position:absolute;bottom:16px;left:16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+    @media(max-width:960px){
+      .lw-top{grid-template-columns:1fr;gap:32px;padding:0 28px 48px;}
+      .lw-screens{grid-template-columns:1fr;}
+      .lw-screen img,.lw-screen.featured img{height:240px;}
+      #landing-web{padding:80px 0 100px;}
+    }
+
+    /* CTA / CONTACT */
+    #cta{position:relative;padding:120px 48px 140px;overflow:hidden;}
+    .cta-img-bg{position:absolute;inset:0;z-index:0;}
+    .cta-img-bg img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(15%) brightness(.35);}
+    .cta-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,197,169,.92) 0%,rgba(212,197,169,.75) 60%,rgba(212,197,169,.5) 100%);z-index:1;}
+    .cta-content{position:relative;z-index:2;}
+    .cta-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin-bottom:44px;}
+    .cta-h{font-family:'Anton',sans-serif;font-size:clamp(46px,8.5vw,130px);line-height:.92;letter-spacing:-.025em;text-transform:lowercase;color:var(--obsidian);max-width:880px;margin-bottom:80px;}
+    .cta-h .serif{font-family:'Cormorant Garamond',serif;font-size:.72em;font-style:italic;font-weight:300;display:block;margin-top:4px;}
+    .cta-form{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px;max-width:820px;}
+    .fg{display:flex;flex-direction:column;gap:10px;}
+    .fg.full{grid-column:1/-1;}
+    .fg label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);}
+    .fg input,.fg textarea,.fg select{background:transparent;border:none;border-bottom:1px solid rgba(28,28,26,.2);padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:300;color:var(--obsidian);outline:none;transition:border-color .3s;width:100%;}
+    .fg input::placeholder,.fg textarea::placeholder{color:rgba(28,28,26,.28);}
+    .fg input:focus,.fg textarea:focus{border-color:var(--obsidian);}
+    .fg textarea{resize:none;height:72px;}
+    .cta-actions{grid-column:1/-1;display:flex;align-items:center;gap:28px;margin-top:8px;flex-wrap:wrap;}
+    .cta-btn{background:var(--obsidian);color:var(--white);border:none;padding:20px 52px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:none;transition:opacity .3s;}
+    .cta-btn:hover{opacity:.8;}
+    .cta-btn.sent{background:#2d5c3a;}
+    .cta-wa-btn{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.06em;color:var(--obsidian);text-decoration:none;border-bottom:1px solid rgba(28,28,26,.22);padding-bottom:2px;transition:border-color .25s;}
+    .cta-wa-btn:hover{border-color:var(--obsidian);}
+    .cta-wa-btn svg{width:18px;height:18px;fill:var(--obsidian);}
+    .cta-bg-word{position:absolute;bottom:-.12em;right:-.06em;font-family:'Anton',sans-serif;font-size:clamp(180px,28vw,440px);letter-spacing:-.04em;text-transform:lowercase;color:rgba(28,28,26,.05);pointer-events:none;line-height:1;}
+
+    /* WHATSAPP FLOAT */
+    .wa-float{position:fixed;bottom:32px;right:32px;z-index:500;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:transform .3s var(--ease-expo),box-shadow .3s;}
+    .wa-float:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(0,0,0,.35);}
+    .wa-float svg{width:28px;height:28px;fill:#fff;}
+
+    /* FOOTER */
+    footer{background:#141412;padding:64px 48px 40px;}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.05);}
+    .footer-logo{font-family:'Anton',sans-serif;font-size:clamp(60px,10vw,130px);letter-spacing:-.03em;text-transform:lowercase;color:rgba(255,255,255,.06);line-height:1;}
+    .footer-links{text-align:right;display:flex;flex-direction:column;gap:12px;padding-bottom:8px;}
+    .footer-links a{font-size:13px;color:var(--ash);text-decoration:none;letter-spacing:.04em;transition:color .25s;}
+    .footer-links a:hover{color:var(--warm-sand);}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;}
+    .footer-copy{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.13);}
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      nav{padding:22px 28px;}
+      .nav-right .nav-link{display:none;}
+      #hero .hero-content,#hero .hero-bottom{padding-left:28px;padding-right:28px;}
+      .hero-img-bg{display:none;}
+      .hero-img-fade{display:none;}
+      .hero-sub{flex-direction:column;gap:24px;}
+      #manifesto .manifesto-layout{grid-template-columns:1fr;}
+      .manifesto-img-col{height:300px;}
+      .manifesto-img-overlay{display:none;}
+      .manifesto-text-col{padding:64px 28px;}
+      #video-break{height:45vh;}
+      .vb-label{left:28px;}
+      .cases-top,.cases-drag-hint,.gallery-label{padding-left:28px;padding-right:28px;}
+      .cases-strip{padding:0 28px;}
+      .case-card{width:320px;}
+      .case-card-img{height:400px;}
+      #services,#about,#process,#cta{padding:80px 28px 100px;}
+      .services-header{flex-direction:column;align-items:flex-start;gap:16px;}
+      .services-grid{grid-template-columns:1fr 1fr;}
+      .svc-wide{grid-column:1/-1;grid-template-columns:1fr;}
+      .svc-wide-img{height:240px;}
+      .about-cols{grid-template-columns:1fr;gap:0;}
+      .process-img-bg,.process-img-overlay{display:none;}
+      .process-content{max-width:100%;}
+      .cta-form{grid-template-columns:1fr;}
+      footer{padding:48px 28px 32px;}
+      .footer-top{flex-direction:column;align-items:flex-start;gap:28px;}
+      .footer-links{text-align:left;}
+    }
+    @media(max-width:520px){
+      .services-grid{grid-template-columns:1fr;}
+      .case-card{width:280px;}
+      .about-numbers{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <span id="loader-word">veld</span>
+  <div id="loader-bar"><div id="loader-prog"></div></div>
+</div>
+
+<!-- CURSOR -->
+<div id="cur-o"></div>
+<div id="cur-i"></div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/59895285580" target="_blank" rel="noopener" class="wa-float" title="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">veld</a>
+  <div class="nav-right">
+    <a href="#cases" class="nav-link">Casos</a>
+    <a href="#services" class="nav-link">Servicios</a>
+    <a href="#landing-web" class="nav-link">Web</a>
+    <a href="#about" class="nav-link">Nosotros</a>
+    <a href="#cta" class="nav-cta">Agendar llamada →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="hero">
+  <div class="hero-img-bg">
+    <img src="assets/hero-fallback.jpg" alt="" loading="eager"/>
+  </div>
+  <div class="hero-img-fade"></div>
+  <div class="hero-content">
+    <p class="hero-label" id="h-label">Brand & Content Strategy Studio — Uruguay / Latam</p>
+    <h1 class="hero-h1">
+      <span class="line"><span class="line-inner" id="hl1">marcas</span></span>
+      <span class="line"><span class="line-inner" id="hl2">que no se</span></span>
+      <span class="line"><span class="line-inner" id="hl3">pueden</span></span>
+      <span class="line"><span class="line-inner" id="hl4">ignorar.</span></span>
+    </h1>
+    <div class="hero-sub" id="h-sub">
+      <p class="hero-sub-text">Estrategia de marca y contenido<br><em>para negocios que quieren crecer con criterio.</em></p>
+      <div class="hero-sub-aside">
+        Uruguay · Argentina · Brasil<br>
+        Estrategia de marca<br>
+        Contenido editorial<br>
+        Campañas · Producción
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom" id="h-scroll">
+    <span class="hero-scroll-label">scroll</span>
+    <div class="hero-scroll-track"><div class="hero-scroll-thumb"></div></div>
+  </div>
+  <span class="hero-bg-word">veld</span>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Estrategia de marca</span>
+    <span class="marquee-item">Contenido editorial</span>
+    <span class="marquee-item">Campañas Meta Ads</span>
+    <span class="marquee-item">Producción de fotos y video</span>
+    <span class="marquee-item">Gestión de redes sociales</span>
+    <span class="marquee-item">Sistemas de marca</span>
+    <span class="marquee-item">Estrategia de marca</span>
+    <span class="marquee-item">Contenido editorial</span>
+    <span class="marquee-item">Campañas Meta Ads</span>
+    <span class="marquee-item">Producción de fotos y video</span>
+    <span class="marquee-item">Gestión de redes sociales</span>
+    <span class="marquee-item">Sistemas de marca</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ MANIFESTO ═══════════════════ -->
+<section id="manifesto">
+  <div class="manifesto-layout">
+    <div class="manifesto-img-col">
+      <img src="assets/manifesto-bg.png" alt="" loading="lazy"/>
+      <div class="manifesto-img-overlay"></div>
+    </div>
+    <div class="manifesto-text-col">
+      <p class="manifesto-num">01 — Por qué existimos</p>
+      <h2 class="manifesto-h">
+        El mundo no necesita<br>más contenido.
+        <span class="serif">Necesita marcas<br>que valgan la pena.</span>
+      </h2>
+      <p class="manifesto-p">Veld nace del holandés: <em>campo abierto</em>. Sin cercas. Sin límites. Sin ruido. Decidimos que ninguna de las dos palabras debería sobrar: que la estrategia sin contenido es un PDF que nadie lee, y que el contenido sin estrategia es ruido que cuesta caro.</p>
+      <p class="manifesto-p">Trabajamos con negocios que entienden que una marca bien construida habla sola — y con los que todavía quieren llegar a ese punto. No somos la agencia que publica más. Somos la que piensa mejor.</p>
+      <p class="manifesto-pull">"La restricción es la forma más sofisticada de comunicar. Una marca bien construida habla sola."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ VIDEO BREAK ═══════════════════ -->
+<section id="video-break">
+  <video autoplay muted loop playsinline poster="assets/hero-fallback.jpg">
+    <source src="assets/hero-video.mp4" type="video/mp4"/>
+  </video>
+  <div class="vb-overlay"></div>
+  <span class="vb-label">Veld Studio — Producción propia</span>
+</section>
+
+<!-- ═══════════════════ CASES ═══════════════════ -->
+<section id="cases">
+  <div class="cases-top">
+    <div class="cases-left">
+      <h2 class="cases-h">casos</h2>
+      <p class="cases-intro">Cada marca tiene su propio punto de partida.<br>Lo que compartimos es el método.</p>
+    </div>
+  </div>
+
+  <div class="cases-strip-wrap">
+    <div class="cases-strip" id="casesStrip">
+
+      <!-- IMPORTADORA -->
+      <div class="case-card">
+        <img class="case-card-img" src="assets/case-familcar.png" alt="Importadora de repuestos" loading="lazy"/>
+        <div class="case-card-body">
+          <p class="case-card-n">01</p>
+          <p class="case-card-name">Importadora de repuestos</p>
+          <p class="case-card-cat">Autopartes · Uruguay</p>
+          <p class="case-card-desc">Un negocio con 10 años de trayectoria pero sin presencia digital. Construimos la estrategia de contenido desde cero: posicionamiento, tono, calendario editorial y piezas. Sin pauta, solo criterio.</p>
+          <p class="case-card-metric">+27,3%</p>
+          <p class="case-card-metric-lbl">Visualizaciones orgánicas en 60 días · sin inversión en pauta</p>
+        </div>
+      </div>
+
+      <!-- MICROPIGMENTADORA -->
+      <div class="case-card">
+        <img class="case-card-img" src="assets/case-ali.png" alt="Master micropigmentadora" loading="lazy"/>
+        <div class="case-card-body">
+          <p class="case-card-n">02</p>
+          <p class="case-card-name">Master micropigmentadora</p>
+          <p class="case-card-cat">Marca personal · Latam</p>
+          <p class="case-card-desc">Una profesional con talento pero con tres líneas de negocio que competían entre sí. Diseñamos la arquitectura de marca completa: identidad visual, sistema de comunicación y calendario de lanzamiento para cada pilar.</p>
+          <p class="case-card-metric">3 líneas</p>
+          <p class="case-card-metric-lbl">Clínica boutique · Academia Sensi · Mentoría BAM — de disperso a sistema</p>
+        </div>
+      </div>
+
+      <!-- CLÍNICA MÉDICA -->
+      <div class="case-card">
+        <img class="case-card-img" src="assets/case-clinica.png" alt="Clínica estética" loading="lazy"/>
+        <div class="case-card-body">
+          <p class="case-card-n">03</p>
+          <p class="case-card-name">Clínica estética</p>
+          <p class="case-card-cat">Medicina estética · Uruguay</p>
+          <p class="case-card-desc">Contenido disperso, tono inconsistente, presencia desconectada del nivel real del servicio. Construimos el sistema de marca médica completo: guía de tono, calendario editorial y piezas de posicionamiento que comunican autoridad sin perder cercanía.</p>
+          <p class="case-card-metric">Sistema</p>
+          <p class="case-card-metric-lbl">De contenido disperso a marca médica cohesionada</p>
+        </div>
+      </div>
+
+      <!-- GASTRONOMÍA -->
+      <div class="case-card">
+        <img class="case-card-img" src="assets/case-extra.jpg" alt="Gastronomía" loading="lazy"/>
+        <div class="case-card-body">
+          <p class="case-card-n">04</p>
+          <p class="case-card-name">Gastronomía</p>
+          <p class="case-card-cat">Hostelería · Coctelería · Uruguay</p>
+          <p class="case-card-desc">Una propuesta gastronómica con identidad propia que necesitaba comunicarse con el mismo nivel que su producto. Desarrollamos identidad visual, dirección editorial y contenido para redes desde el primer día de operación.</p>
+          <p class="case-card-metric">Identidad</p>
+          <p class="case-card-metric-lbl">Visual y contenido · desde cero · para una marca que arrancaba fuerte</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <p class="cases-drag-hint">Arrastrá para explorar</p>
+</section>
+
+<!-- ═══════════════════ GALLERY ═══════════════════ -->
+<section id="gallery">
+  <p class="gallery-label">Portfolio · Trabajos · Producción editorial</p>
+  <div style="overflow:hidden;">
+    <div class="gallery-strip">
+      <img class="gallery-img" src="assets/gallery-1.jpg" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/food-gourmet.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-5.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/service-produccion.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-6.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/food-burger.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-2.jpg" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-3.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/process-brief.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-9.jpg" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-4.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-10.jpg" alt="" loading="lazy"/>
+      <!-- duplicate for loop -->
+      <img class="gallery-img" src="assets/gallery-1.jpg" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/food-gourmet.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-5.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/service-produccion.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-6.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/food-burger.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-2.jpg" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-3.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/process-brief.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-9.jpg" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-4.png" alt="" loading="lazy"/>
+      <img class="gallery-img" src="assets/gallery-10.jpg" alt="" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section id="services">
+  <div class="services-header">
+    <h2 class="services-h">servicios</h2>
+    <p class="services-intro">Siete líneas de trabajo. Una misma obsesión: que tu marca funcione.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="svc">
+      <p class="svc-n">01</p>
+      <h3 class="svc-title">marca</h3>
+      <p class="svc-desc">El punto de partida de todo. Sin marca con punto de vista, el contenido no tiene dónde aterrizar.</p>
+      <div class="svc-items">
+        <span class="svc-item">Identidad visual y naming</span>
+        <span class="svc-item">Rebranding estratégico</span>
+        <span class="svc-item">Tono de voz y guía editorial</span>
+        <span class="svc-item">Manual de marca</span>
+      </div>
+      <span class="svc-bg-n">01</span>
+    </div>
+
+    <div class="svc">
+      <p class="svc-n">02</p>
+      <h3 class="svc-title">contenido</h3>
+      <p class="svc-desc">Estrategia editorial + gestión de redes + copywriting. El sistema que mantiene la marca viva y consistente semana a semana.</p>
+      <div class="svc-items">
+        <span class="svc-item">Estrategia editorial mensual</span>
+        <span class="svc-item">Gestión de Instagram y LinkedIn</span>
+        <span class="svc-item">Copywriting para redes y email</span>
+        <span class="svc-item">Informe de resultados</span>
+      </div>
+      <span class="svc-bg-n">02</span>
+    </div>
+
+    <div class="svc">
+      <p class="svc-n">03</p>
+      <h3 class="svc-title">campañas</h3>
+      <p class="svc-desc">Meta Ads con estrategia detrás. Pauta que sabe adónde va porque tiene una marca sólida como respaldo.</p>
+      <div class="svc-items">
+        <span class="svc-item">Estrategia y planificación</span>
+        <span class="svc-item">Creación de creatividades</span>
+        <span class="svc-item">Optimización y seguimiento</span>
+        <span class="svc-item">Reporte de métricas real</span>
+      </div>
+      <span class="svc-bg-n">03</span>
+    </div>
+
+    <div class="svc">
+      <p class="svc-n">04</p>
+      <h3 class="svc-title">presencia</h3>
+      <p class="svc-desc">Newsletter, marca personal, LinkedIn. Para los que entienden que ellos también son la marca — y quieren construirla con criterio.</p>
+      <div class="svc-items">
+        <span class="svc-item">Estrategia de marca personal</span>
+        <span class="svc-item">Contenido para LinkedIn</span>
+        <span class="svc-item">Newsletter editorial</span>
+        <span class="svc-item">Posicionamiento de experto</span>
+      </div>
+      <span class="svc-bg-n">04</span>
+    </div>
+
+    <div class="svc">
+      <p class="svc-n">05</p>
+      <h3 class="svc-title">web & landings</h3>
+      <p class="svc-desc">Una landing bien hecha convierte en días. Diseñamos y desarrollamos piezas digitales con la misma coherencia visual y estratégica que aplicamos al contenido. No es template — es marca.</p>
+      <div class="svc-items">
+        <span class="svc-item">Landing pages de alta conversión</span>
+        <span class="svc-item">Webs institucionales y de servicio</span>
+        <span class="svc-item">Auditoría de páginas existentes</span>
+        <span class="svc-item">Entrega en 72hs desde el brief</span>
+      </div>
+      <span class="svc-bg-n">05</span>
+    </div>
+
+    <div class="svc">
+      <p class="svc-n">06</p>
+      <h3 class="svc-title">SEO + GEO</h3>
+      <p class="svc-desc">El SEO ya no es solo Google. El <strong style="font-weight:400;color:inherit;">GEO</strong> — <em>Generative Engine Optimization</em> — es la nueva frontera: optimizar tu marca y tu contenido para que los buscadores de IA (ChatGPT, Gemini, Claude, Perplexity) te recomienden cuando alguien pregunta sobre lo que vos hacés. El que no aparece en IA, no existe.</p>
+      <div class="svc-items">
+        <span class="svc-item">Auditoría SEO técnica y de contenido</span>
+        <span class="svc-item">Optimización GEO para buscadores IA</span>
+        <span class="svc-item">Auditoría de landings para conversión</span>
+        <span class="svc-item">Estrategia de palabras clave</span>
+      </div>
+      <span class="svc-bg-n">06</span>
+    </div>
+
+    <!-- WIDE: Producción -->
+    <div class="svc-wide">
+      <div class="svc-wide-img">
+        <img src="assets/service-produccion.png" alt="Producción editorial Veld" loading="lazy"/>
+      </div>
+      <div class="svc-wide-body">
+        <div class="svc-inset-video">
+          <video loop playsinline preload="none">
+            <source src="assets/produccion-reel.mp4" type="video/mp4"/>
+          </video>
+          <span class="svc-inset-label">Producción editorial</span>
+        </div>
+        <p class="svc-n">07</p>
+        <h3 class="svc-title">producción</h3>
+        <p class="svc-desc">Fotos, videos y editoriales con guion y dirección propios. Contenido orgánico de alto nivel hecho desde adentro: con criterio de marca, con guion, con intención. No es stock. No es imprevisto. Es producción editorial que vende.</p>
+        <div class="svc-items">
+          <span class="svc-item">Dirección de arte y guion</span>
+          <span class="svc-item">Sesiones editoriales de foto y video</span>
+          <span class="svc-item">Edición y postproducción</span>
+          <span class="svc-item">Contenido listo para publicar</span>
+        </div>
+        <span class="svc-tag">Servicio plus · consultar disponibilidad</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section id="about">
+  <div class="about-solo">
+    <p class="about-label rv">02 — Quiénes somos</p>
+    <h2 class="about-h rv">una agencia.<br>un punto<br>de vista.</h2>
+    <div class="about-cols">
+      <div class="about-col-left">
+        <p class="about-p rv">Veld nació de una convicción simple: el problema de la mayoría de las marcas no es presupuesto — es criterio. Hay demasiado contenido publicado por inercia, demasiadas decisiones tomadas porque "así lo hace todo el mundo", demasiado miedo a tener una posición propia.</p>
+        <p class="about-p rv">Somos una agencia pequeña de forma deliberada. No perseguimos volumen de clientes. Trabajamos en profundidad con negocios que se toman en serio tu marca y quieren construir algo que dure más que una temporada.</p>
+      </div>
+      <div class="about-col-right">
+        <p class="about-p rv">Latam es nuestro mercado. El rigor editorial es nuestro estándar. El punto de vista es el activo que nunca diluimos.</p>
+        <p class="about-p rv" style="color:rgba(212,197,169,.7);border-left:2px solid rgba(212,197,169,.3);padding-left:18px;font-style:italic;">Trabajamos con marcas en todos sus momentos: las que están arrancando y quieren arrancar bien, y las que llevan años y saben que ya es hora de hacerlo en serio. Seas quien seas, si te tomás tu marca en serio, hablamos.</p>
+        <p class="about-pull rv">"Todo el mundo tiene agencia.<br>Pocos tienen criterio."</p>
+      </div>
+    </div>
+    <div class="about-numbers rv">
+      <div>
+        <p class="about-num-n">+27%</p>
+        <p class="about-num-lbl">Crecimiento orgánico promedio en primeros 60 días</p>
+      </div>
+      <div>
+        <p class="about-num-n">+15</p>
+        <p class="about-num-lbl">Marcas acompañadas — desde cero hasta rebranding</p>
+      </div>
+      <div>
+        <p class="about-num-n">UY · AR · BR</p>
+        <p class="about-num-lbl">Mercados en los que operamos</p>
+      </div>
+      <div>
+        <p class="about-num-n">0</p>
+        <p class="about-num-lbl">Contenidos genéricos. En serio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROCESS ═══════════════════ -->
+<section id="process">
+  <div class="process-img-bg">
+    <img src="assets/process-brief.png" alt="" loading="lazy"/>
+    <div class="process-img-overlay"></div>
+  </div>
+  <div class="process-content">
+    <p class="process-label">03 — Cómo trabajamos</p>
+    <h2 class="process-h">proceso</h2>
+    <div>
+      <div class="step-row">
+        <span class="step-n">01</span>
+        <div>
+          <h3 class="step-title">Brief profundo</h3>
+          <p class="step-desc">Empezamos con las preguntas que incomodan. ¿Quién sos realmente? ¿Para quién trabajás? ¿Por qué importa lo que hacés? Las respuestas honestas son la materia prima de todo lo que viene. Antes de crear, entendemos.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-n">02</span>
+        <div>
+          <h3 class="step-title">Diagnóstico y estrategia</h3>
+          <p class="step-desc">Auditamos lo que existe, identificamos el gap entre cómo te ven y cómo te percibe el mercado, y construimos tu estrategia de posicionamiento. El mapa antes del territorio. Sin este paso, el contenido es solo ruido organizado.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-n">03</span>
+        <div>
+          <h3 class="step-title">Producción y publicación</h3>
+          <p class="step-desc">El contenido sale. Consistente, con tu voz, con criterio. Semana a semana, sin excusas y sin copiar lo que hace tu competencia. Cada pieza existe porque tiene un objetivo dentro de tu estrategia.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <span class="step-n">04</span>
+        <div>
+          <h3 class="step-title">Análisis e informe</h3>
+          <p class="step-desc">Números reales, decisiones reales. Cada mes sabés exactamente qué funcionó, qué generó movimiento en tu negocio y qué ajustamos. No hacemos informes de vanidad. Hacemos diagnósticos que te sirven para el mes siguiente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ LANDING & WEB ═══════════════════ -->
+<section id="landing-web">
+  <div class="lw-top">
+    <h2 class="lw-h">landing<br>pages<br>& webs</h2>
+    <div class="lw-right">
+      <span class="lw-tag">Servicio destacado</span>
+      <p class="lw-desc">Una landing bien hecha convierte en días. Una web con criterio posiciona en meses. Diseñamos y desarrollamos piezas digitales que funcionan — con la misma coherencia visual y estratégica que aplicamos al contenido.</p>
+      <div class="lw-list">
+        <span class="lw-item">Landing pages de alta conversión</span>
+        <span class="lw-item">Webs institucionales y de servicio</span>
+        <span class="lw-item">Diseño UI/UX con identidad de marca</span>
+        <span class="lw-item">Copy integrado — no se improvisa</span>
+        <span class="lw-item">Entrega en 72hs desde el brief</span>
+      </div>
+      <a href="#cta" class="lw-cta">Pedir una cotización →</a>
+    </div>
+  </div>
+  <div class="lw-screens">
+    <div class="lw-screen featured">
+      <img src="assets/landing-screen-1.jpg" alt="Landing page · Veld" loading="lazy"/>
+      <span class="lw-screen-label">Restaurante · Parrilla & Vinos · Uruguay</span>
+    </div>
+    <div class="lw-screen">
+      <img src="assets/landing-screen-2.jpg" alt="Landing page · Veld" loading="lazy"/>
+      <span class="lw-screen-label">Micropigmentación · Marca personal · Latam</span>
+    </div>
+    <div class="lw-screen">
+      <img src="assets/landing-screen-3.png" alt="Landing page · Veld" loading="lazy"/>
+      <span class="lw-screen-label">Evento · Marca personal · Uruguay</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section id="cta">
+  <div class="cta-img-bg">
+    <img src="assets/cta-hand.png" alt="" loading="lazy"/>
+  </div>
+  <div class="cta-img-overlay"></div>
+  <div class="cta-content">
+  <p class="cta-label">¿Tiene sentido que trabajemos juntos?</p>
+  <h2 class="cta-h">
+    30 minutos.
+    <span class="serif">eso es todo lo que necesitamos<br>para saber si tiene sentido.</span>
+  </h2>
+  <form class="cta-form" id="contactForm" novalidate>
+    <div class="fg"><label for="f-name">Nombre</label><input id="f-name" type="text" placeholder="Tu nombre" required/></div>
+    <div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="tu@email.com" required/></div>
+    <div class="fg"><label for="f-biz">Negocio o marca</label><input id="f-biz" type="text" placeholder="¿A qué te dedicás?"/></div>
+    <div class="fg"><label for="f-wa">WhatsApp (opcional)</label><input id="f-wa" type="tel" placeholder="+598 · · ·"/></div>
+    <div class="fg full"><label for="f-msg">¿Qué está pasando con tu marca?</label><textarea id="f-msg" placeholder="Contanos en dos líneas. Sin filtros."></textarea></div>
+    <div class="cta-actions">
+      <button type="submit" class="cta-btn" id="submitBtn">Agendar llamada →</button>
+      <a href="https://wa.me/59895285580" target="_blank" rel="noopener" class="cta-wa-btn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </form>
+  <span class="cta-bg-word">veld</span>
+  </div><!-- /cta-content -->
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">veld</div>
+    <div class="footer-links">
+      <a href="mailto:hola@veldstudio.com">hola@veldstudio.com</a>
+      <a href="https://instagram.com/veldstudio2026" target="_blank" rel="noopener">@veldstudio2026</a>
+      <a href="https://wa.me/59895285580" target="_blank" rel="noopener">+598 952 85580</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Veld Studio — Uruguay / Latam</span>
+    <span class="footer-copy">Brand & Content Strategy</span>
+  </div>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── CURSOR ── */
+const curO=document.getElementById('cur-o'),curI=document.getElementById('cur-i');
+let mx=innerWidth/2,my=innerHeight/2,ox=mx,oy=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.to(curI,{x:mx,y:my,duration:.08,ease:'none'});});
+(function curLoop(){ox+=(mx-ox)*.1;oy+=(my-oy)*.1;gsap.set(curO,{x:ox,y:oy});requestAnimationFrame(curLoop);})();
+document.querySelectorAll('a,button,.case-card,.svc,.svc-wide,.step-row').forEach(el=>{
+  el.addEventListener('mouseenter',()=>gsap.to(curO,{width:72,height:72,duration:.4}));
+  el.addEventListener('mouseleave',()=>gsap.to(curO,{width:44,height:44,duration:.4}));
+});
+
+/* ── LOADER ── */
+const loaderTL=gsap.timeline({onComplete:initPage});
+loaderTL
+  .from('#loader-word',{opacity:0,y:24,duration:.7,ease:'power3.out'})
+  .to('#loader-prog',{left:'0%',duration:1,ease:'power2.inOut'},0)
+  .to('#loader-word',{opacity:0,y:-32,duration:.5,ease:'power3.in',delay:.25})
+  .to('#loader',{opacity:0,duration:.5})
+  .set('#loader',{display:'none'});
+
+function initPage(){
+  /* hero entrance */
+  gsap.from('#nav',{opacity:0,y:-18,duration:.6,ease:'power3.out'});
+  gsap.from('#h-label',{opacity:0,y:16,duration:.6,ease:'power3.out',delay:.1});
+  gsap.from(['#hl1','#hl2','#hl3','#hl4'],{y:'105%',duration:1,ease:'power4.out',stagger:.1,delay:.15});
+  gsap.from('#h-sub',{opacity:0,y:24,duration:.7,ease:'power3.out',delay:.55});
+  gsap.from('#h-scroll',{opacity:0,duration:.5,delay:.75});
+  gsap.from('.wa-float',{opacity:0,y:20,duration:.5,delay:.8});
+
+  /* scroll reveals — using from() so content visible if GSAP fails */
+  const reveals=document.querySelectorAll('.rv');
+  reveals.forEach(el=>{
+    gsap.from(el,{
+      opacity:0,
+      y:52,
+      duration:.9,
+      ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}
+    });
+  });
+
+  /* parallax hero bg word */
+  gsap.to('.hero-bg-word',{y:-100,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1.2}});
+
+  /* video-break parallax */
+  gsap.from('#video-break video',{scale:1.12,ease:'none',scrollTrigger:{trigger:'#video-break',start:'top bottom',end:'bottom top',scrub:1.5}});
+
+  /* manifesto image subtle parallax */
+  gsap.to('.manifesto-img-col img',{y:60,ease:'none',scrollTrigger:{trigger:'#manifesto',start:'top bottom',end:'bottom top',scrub:1.5}});
+}
+
+/* ── PRODUCCIÓN INSET VIDEO — play on hover ── */
+const svcWide=document.querySelector('.svc-wide');
+const insetVid=svcWide?.querySelector('.svc-inset-video video');
+if(svcWide&&insetVid){
+  insetVid.pause();
+  svcWide.addEventListener('mouseenter',()=>insetVid.play().catch(()=>{}));
+  svcWide.addEventListener('mouseleave',()=>insetVid.pause());
+}
+
+/* ── CASES DRAG ── */
+const strip=document.getElementById('casesStrip');
+const stripWrap=strip.parentElement;
+let isDrag=false,startX=0,sl=0;
+strip.addEventListener('mousedown',e=>{isDrag=true;startX=e.pageX;sl=stripWrap.scrollLeft;strip.style.cursor='grabbing';});
+document.addEventListener('mouseup',()=>{isDrag=false;strip.style.cursor='grab';});
+strip.addEventListener('mousemove',e=>{if(!isDrag)return;e.preventDefault();stripWrap.scrollLeft=sl-(e.pageX-startX)*1.5;});
+strip.addEventListener('touchstart',e=>{startX=e.touches[0].pageX;sl=stripWrap.scrollLeft;},{passive:true});
+strip.addEventListener('touchmove',e=>{stripWrap.scrollLeft=sl-(e.touches[0].pageX-startX)*1.2;},{passive:true});
+
+/* ── FORM ── */
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Mensaje enviado ✓';
+  btn.classList.add('sent');
+  btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='Agendar llamada →';
+    btn.classList.remove('sent');
+    btn.disabled=false;
+    e.target.reset();
+  },4000);
+});
+</script>
+</body>
 </html>
