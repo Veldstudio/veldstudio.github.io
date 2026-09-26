@@ -150,6 +150,15 @@
     .svc-item{font-size:12px;letter-spacing:.06em;color:var(--ash);transition:color .4s;padding-left:12px;position:relative;}
     .svc-item::before{content:'→';position:absolute;left:0;font-size:10px;}
     .svc:hover .svc-item{color:rgba(212,197,169,.5);}
+    .svc-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.35;color:var(--obsidian);margin:18px 0 14px;max-width:300px;transition:color .4s;}
+    .svc:hover .svc-quote{color:var(--white);}
+    .svc-for{font-size:12px;line-height:1.7;color:var(--ash);max-width:300px;transition:color .4s;}
+    .svc:hover .svc-for{color:rgba(212,197,169,.6);}
+    .svc-meta{margin-top:22px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);transition:color .4s;}
+    .svc:hover .svc-meta{color:rgba(212,197,169,.7);}
+    .svc-cta{display:inline-block;margin-top:18px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--obsidian);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px;transition:color .4s;position:relative;z-index:2;}
+    .svc:hover .svc-cta{color:var(--white);}
+    .svc-link{color:inherit;text-decoration:underline;}
     .svc-bg-n{position:absolute;bottom:-.2em;right:-.05em;font-family:'Anton',sans-serif;font-size:130px;letter-spacing:-.05em;color:rgba(28,28,26,.05);line-height:1;pointer-events:none;transition:color .4s;}
     .svc:hover .svc-bg-n{color:rgba(255,255,255,.03);}
     /* Wide producción */
@@ -326,7 +335,7 @@
   <a href="#" class="nav-logo">veld</a>
   <div class="nav-right">
     <a href="#cases" class="nav-link">Casos</a>
-    <a href="#services" class="nav-link">Servicios</a>
+    <a href="#services" class="nav-link">Programas</a>
     <a href="#landing-web" class="nav-link">Web</a>
     <a href="#about" class="nav-link">Nosotros</a>
     <a href="#cta" class="nav-cta">Agendar llamada →</a>
@@ -519,91 +528,65 @@
 <!-- ═══════════════════ SERVICES ═══════════════════ -->
 <section id="services">
   <div class="services-header">
-    <h2 class="services-h">servicios</h2>
-    <p class="services-intro">Siete líneas de trabajo. Una misma obsesión: que tu marca funcione.</p>
+    <h2 class="services-h">programas</h2>
+    <p class="services-intro">Un programa para cada momento de tu marca. Elegís el problema, nosotros armamos el sistema.</p>
   </div>
   <div class="services-grid">
 
     <div class="svc">
-      <p class="svc-n">01</p>
-      <h3 class="svc-title">marca</h3>
-      <p class="svc-desc">El punto de partida de todo. Sin marca con punto de vista, el contenido no tiene dónde aterrizar.</p>
+      <p class="svc-n">Programa 01</p>
+      <h3 class="svc-title">raíz</h3>
+      <p class="svc-desc">Para marcas que arrancan y quieren arrancar bien.</p>
+      <p class="svc-quote">Nacer con criterio sale más barato que corregir después.</p>
+      <p class="svc-for">Negocios nuevos, relanzamientos y profesionales que pasan de su nombre propio a una marca.</p>
       <div class="svc-items">
-        <span class="svc-item">Identidad visual y naming</span>
-        <span class="svc-item">Rebranding estratégico</span>
+        <span class="svc-item">Brief profundo y posicionamiento</span>
+        <span class="svc-item">Identidad visual y naming, si hace falta</span>
         <span class="svc-item">Tono de voz y guía editorial</span>
-        <span class="svc-item">Manual de marca</span>
+        <span class="svc-item">Landing de lanzamiento en 72 horas</span>
+        <span class="svc-item">Primeros 30 días de contenido listos</span>
       </div>
+      <p class="svc-meta">6 semanas</p>
+      <a href="#cta" class="svc-cta">Hablemos de raíz →</a>
       <span class="svc-bg-n">01</span>
     </div>
 
     <div class="svc">
-      <p class="svc-n">02</p>
-      <h3 class="svc-title">contenido</h3>
-      <p class="svc-desc">Estrategia editorial + gestión de redes + copywriting. El sistema que mantiene la marca viva y consistente semana a semana.</p>
+      <p class="svc-n">Programa 02</p>
+      <h3 class="svc-title">orden</h3>
+      <p class="svc-desc">Para marcas con años de trabajo que ya no se parecen a lo que son hoy.</p>
+      <p class="svc-quote">Todo lo que hiciste bien, ordenado para que se note.</p>
+      <p class="svc-for">Clínicas, profesionales y empresas con varias líneas de negocio, contenido disperso o un tono que cambia según quién publica.</p>
       <div class="svc-items">
-        <span class="svc-item">Estrategia editorial mensual</span>
-        <span class="svc-item">Contenido para Instagram y LinkedIn</span>
-        <span class="svc-item">Copywriting para redes y email</span>
-        <span class="svc-item">Informe de resultados</span>
+        <span class="svc-item">Auditoría de marca, Instagram y web</span>
+        <span class="svc-item">Arquitectura de marca: qué es cada línea y cómo convive con las otras</span>
+        <span class="svc-item">Sistema de contenido con calendario e informe mensual</span>
+        <span class="svc-item">Ajuste de la web al nuevo posicionamiento</span>
       </div>
+      <p class="svc-meta">8 semanas · acompañamiento mensual opcional</p>
+      <a href="#cta" class="svc-cta">Hablemos de orden →</a>
       <span class="svc-bg-n">02</span>
     </div>
 
     <div class="svc">
-      <p class="svc-n">03</p>
-      <h3 class="svc-title">campañas</h3>
-      <p class="svc-desc">Meta Ads con estrategia detrás. Pauta que sabe adónde va porque tiene una marca sólida como respaldo.</p>
+      <p class="svc-n">Programa 03</p>
+      <h3 class="svc-title">señal</h3>
+      <p class="svc-desc">Para que la IA te nombre cuando alguien pregunta por lo que hacés.</p>
+      <p class="svc-quote">Tus próximos clientes ya le están preguntando a ChatGPT.</p>
+      <p class="svc-for">Empresas medianas y grandes de Uruguay y España, y cualquier marca que dependa de ser encontrada.</p>
       <div class="svc-items">
-        <span class="svc-item">Estrategia y planificación</span>
-        <span class="svc-item">Creación de creatividades</span>
-        <span class="svc-item">Optimización y seguimiento</span>
-        <span class="svc-item">Reporte de métricas real</span>
+        <span class="svc-item">Diagnóstico con <a href="https://veldsignal.com" target="_blank" rel="noopener" class="svc-link">Veld Signal</a>, nuestro producto propio</span>
+        <span class="svc-item">Plan de mejoras por prioridad</span>
+        <span class="svc-item">Optimización GEO y SEO de la web</span>
+        <span class="svc-item">Contenido pensado para que la IA lo cite</span>
+        <span class="svc-item">Medición mensual con Veld Signal</span>
       </div>
+      <p class="svc-meta">Diagnóstico en 7 días · implementación en 90</p>
+      <a href="#cta" class="svc-cta">Hablemos de señal →</a>
       <span class="svc-bg-n">03</span>
     </div>
 
-    <div class="svc">
-      <p class="svc-n">04</p>
-      <h3 class="svc-title">presencia</h3>
-      <p class="svc-desc">Newsletter, marca personal, LinkedIn. Para los que entienden que ellos también son la marca y quieren construirla con criterio.</p>
-      <div class="svc-items">
-        <span class="svc-item">Estrategia de marca personal</span>
-        <span class="svc-item">Contenido para LinkedIn</span>
-        <span class="svc-item">Newsletter editorial</span>
-        <span class="svc-item">Posicionamiento de experto</span>
-      </div>
-      <span class="svc-bg-n">04</span>
-    </div>
-
-    <div class="svc">
-      <p class="svc-n">05</p>
-      <h3 class="svc-title">web & landings</h3>
-      <p class="svc-desc">Una landing bien hecha convierte en días. Diseñamos y desarrollamos piezas digitales con la misma coherencia visual y estratégica que aplicamos al contenido. Cada pieza sale de tu marca, ninguna de un template.</p>
-      <div class="svc-items">
-        <span class="svc-item">Landing pages de alta conversión</span>
-        <span class="svc-item">Webs institucionales y de servicio</span>
-        <span class="svc-item">Auditoría de páginas existentes</span>
-        <span class="svc-item">Entrega en 72hs desde el brief</span>
-      </div>
-      <span class="svc-bg-n">05</span>
-    </div>
-
-    <div class="svc">
-      <p class="svc-n">06</p>
-      <h3 class="svc-title">SEO + GEO</h3>
-      <p class="svc-desc">El SEO ya no es solo Google. El <strong style="font-weight:400;color:inherit;">GEO</strong> (<em>Generative Engine Optimization</em>) es la nueva frontera: optimizar tu marca y tu contenido para que los buscadores de IA (ChatGPT, Gemini, Claude, Perplexity) te recomienden cuando alguien pregunta sobre lo que vos hacés. El que no aparece en IA, no existe. Por eso creamos <a href="https://veldsignal.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Veld Signal</a>, nuestro producto propio: mide si ChatGPT, Gemini y Perplexity recomiendan tu marca y frente a qué competidores.</p>
-      <div class="svc-items">
-        <span class="svc-item">Auditoría SEO técnica y de contenido</span>
-        <span class="svc-item">Diagnóstico con Veld Signal, producto propio</span>
-        <span class="svc-item">Optimización GEO para buscadores IA</span>
-        <span class="svc-item">Auditoría de landings para conversión</span>
-        <span class="svc-item">Estrategia de palabras clave</span>
-      </div>
-      <span class="svc-bg-n">06</span>
-    </div>
-
-    <!-- WIDE: Producción -->
+    <!-- WIDE: Complementos -->
     <div class="svc-wide">
       <div class="svc-wide-img">
         <img src="assets/service-produccion.png" alt="Producción editorial Veld" loading="lazy"/>
@@ -615,16 +598,16 @@
           </video>
           <span class="svc-inset-label">Producción editorial</span>
         </div>
-        <p class="svc-n">07</p>
-        <h3 class="svc-title">producción</h3>
-        <p class="svc-desc">Fotos, videos y editoriales con guion y dirección propios. Contenido orgánico de alto nivel hecho desde adentro: con criterio de marca, con guion, con intención. No es stock. No es imprevisto. Es producción editorial que vende.</p>
+        <p class="svc-n">Se suman a cualquier programa</p>
+        <h3 class="svc-title">complementos</h3>
+        <p class="svc-desc">Fotos, videos y editoriales con guion y dirección propios, hechos desde adentro con criterio de marca. Pauta con estrategia detrás. Y piezas web con la misma coherencia que el resto del sistema.</p>
         <div class="svc-items">
-          <span class="svc-item">Dirección de arte y guion</span>
-          <span class="svc-item">Sesiones editoriales de foto y video</span>
-          <span class="svc-item">Edición y postproducción</span>
-          <span class="svc-item">Contenido listo para publicar</span>
+          <span class="svc-item">Producción editorial de foto y video</span>
+          <span class="svc-item">Campañas de Meta Ads: estrategia, creatividades y reporte</span>
+          <span class="svc-item">Landings y webs adicionales, entrega en 72 horas</span>
+          <span class="svc-item">Marca personal, LinkedIn y newsletter</span>
         </div>
-        <span class="svc-tag">Servicio plus · consultar disponibilidad</span>
+        <span class="svc-tag">Consultar disponibilidad</span>
       </div>
     </div>
 

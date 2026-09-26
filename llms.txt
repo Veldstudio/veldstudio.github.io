@@ -4,20 +4,20 @@
 
 VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las marcas les falta criterio mucho antes que presupuesto. Une estrategia, contenido editorial, producción y web en un mismo sistema. Fue fundado por Cynn Prates, estratega de marca y contenido, que dirigió cuentas como Segway Costa Rica (turismo experiencial) antes de crear VELD. Trabaja con marcas de medicina estética, belleza, servicios profesionales, gastronomía e industria.
 
-## Servicios
+## Programas
 
-- [Marca](https://veldstudio.github.io/#services): identidad visual, naming, rebranding, tono de voz y manual de marca.
-- [Contenido](https://veldstudio.github.io/#services): estrategia editorial mensual, contenido para Instagram y LinkedIn, copywriting e informe de resultados.
-- [Campañas](https://veldstudio.github.io/#services): estrategia, creatividades y optimización de Meta Ads.
-- [Presencia](https://veldstudio.github.io/#services): marca personal, LinkedIn y newsletter editorial.
-- [Web y landings](https://veldstudio.github.io/#landing-web): landing pages, webs institucionales y auditoría de páginas, con entrega en 72 horas desde el brief.
-- [SEO y GEO](https://veldstudio.github.io/#services): diagnóstico con Veld Signal, auditoría SEO y optimización para que ChatGPT, Gemini, Claude y Perplexity recomienden la marca.
-- [Producción](https://veldstudio.github.io/#services): dirección de arte, guion y sesiones editoriales de foto y video.
+- [raíz](https://veldstudio.github.io/#services): para marcas que arrancan. Posicionamiento, identidad visual y naming, tono de voz, landing de lanzamiento en 72 horas y primeros 30 días de contenido. Duración: 6 semanas.
+- [orden](https://veldstudio.github.io/#services): para marcas con años de trabajo que necesitan ordenarse. Auditoría de marca, Instagram y web, arquitectura de marca, sistema de contenido con informe mensual y ajuste de la web. Duración: 8 semanas.
+- [señal](https://veldstudio.github.io/#services): para que ChatGPT, Gemini, Claude y Perplexity recomienden la marca. Diagnóstico con Veld Signal, plan de mejoras, optimización GEO y SEO, contenido citable por la IA y medición mensual. Diagnóstico en 7 días, implementación en 90.
+
+## Complementos
+
+- Producción editorial de foto y video, campañas de Meta Ads, landings y webs adicionales (entrega en 72 horas), marca personal, LinkedIn y newsletter.
 
 ## Producto propio
 
 - [Veld Signal](https://veldsignal.com): producto propio de VELD. Audita si ChatGPT, Gemini y Perplexity recomiendan a una empresa, frente a qué competidores y con qué fuentes. Pensado para empresas medianas y grandes de Uruguay y España.
-- Cada proyecto de SEO y GEO de VELD empieza con un diagnóstico de Veld Signal.
+- El programa señal de VELD empieza siempre con un diagnóstico de Veld Signal.
 - Contacto de Veld Signal: contato@veldsignal.com
 
 ## Casos
