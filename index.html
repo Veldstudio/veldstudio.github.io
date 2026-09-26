@@ -740,7 +740,7 @@
   </h2>
   <form class="cta-form" id="contactForm" novalidate>
     <div class="fg"><label for="f-name">Nombre</label><input id="f-name" type="text" placeholder="Tu nombre" required/></div>
-    <div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="tu@email.com" required/></div>
+    <div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="tu@email.com"/></div>
     <div class="fg"><label for="f-biz">Negocio o marca</label><input id="f-biz" type="text" placeholder="¿A qué te dedicás?"/></div>
     <div class="fg"><label for="f-wa">WhatsApp (opcional)</label><input id="f-wa" type="tel" placeholder="+598 · · ·"/></div>
     <div class="fg full"><label for="f-msg">¿Qué está pasando con tu marca?</label><textarea id="f-msg" placeholder="Contanos en dos líneas. Sin filtros."></textarea></div>
@@ -761,8 +761,8 @@
   <div class="footer-top">
     <div class="footer-logo">veld</div>
     <div class="footer-links">
-      <a href="mailto:hola@veldstudio.com">hola@veldstudio.com</a>
       <a href="https://instagram.com/veldstudio_" target="_blank" rel="noopener">@veldstudio_</a>
+      <a href="mailto:contacto@veldsignal.com">contacto@veldsignal.com</a>
       <a href="https://wa.me/59895285580" target="_blank" rel="noopener">+598 952 85580</a>
       <a href="https://veldsignal.com" target="_blank" rel="noopener">Veld Signal</a>
     </div>
@@ -848,16 +848,20 @@ strip.addEventListener('touchmove',e=>{stripWrap.scrollLeft=sl-(e.touches[0].pag
 /* ── FORM ── */
 document.getElementById('contactForm').addEventListener('submit',e=>{
   e.preventDefault();
+  const v=id=>(document.getElementById(id).value||'').trim();
+  const name=v('f-name'), email=v('f-email'), biz=v('f-biz'), wa=v('f-wa'), msg=v('f-msg');
+  if(!name){document.getElementById('f-name').focus();return;}
+  let t='Hola Cinthia, soy '+name;
+  if(biz) t+=' ('+biz+')';
+  t+='. Quiero agendar la llamada de 30 minutos con Veld.';
+  if(msg) t+='\n\nLo que pasa con mi marca: '+msg;
+  if(email) t+='\n\nEmail: '+email;
+  if(wa) t+='\nWhatsApp: '+wa;
+  window.open('https://wa.me/59895285580?text='+encodeURIComponent(t),'_blank','noopener');
   const btn=document.getElementById('submitBtn');
-  btn.textContent='Mensaje enviado ✓';
+  btn.textContent='Abriendo WhatsApp…';
   btn.classList.add('sent');
-  btn.disabled=true;
-  setTimeout(()=>{
-    btn.textContent='Agendar llamada →';
-    btn.classList.remove('sent');
-    btn.disabled=false;
-    e.target.reset();
-  },4000);
+  setTimeout(()=>{btn.textContent='Agendar llamada →';btn.classList.remove('sent');},4000);
 });
 </script>
 </body>
