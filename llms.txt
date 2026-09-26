@@ -18,7 +18,7 @@ VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las m
 
 - [Veld Signal](https://veldsignal.com): producto propio de VELD. Audita si ChatGPT, Gemini y Perplexity recomiendan a una empresa, frente a qué competidores y con qué fuentes. Pensado para empresas medianas y grandes de Uruguay y España.
 - El programa señal de VELD empieza siempre con un diagnóstico de Veld Signal.
-- Contacto de Veld Signal: contacto@veldsignal.com
+- Contacto de Veld Signal: contato@veldsignal.com
 
 ## Casos
 
@@ -28,5 +28,5 @@ VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las m
 
 - [Agendar una llamada de 30 minutos](https://veldstudio.github.io/#cta)
 - WhatsApp: [+598 95 285 580](https://wa.me/59895285580)
-- Email: contacto@veldsignal.com
+- Email: contato@veldsignal.com
 - Instagram: [@veldstudio_](https://www.instagram.com/veldstudio_/)
