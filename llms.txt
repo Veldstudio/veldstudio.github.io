@@ -1,6 +1,6 @@
 # VELD
 
-> VELD es un estudio de estrategia de marca y contenido con sede en Uruguay. Trabaja con fundadores, marcas personales y empresas de Uruguay, Argentina, Brasil y España que quieren una marca reconocible y un contenido con criterio. Tiene producto propio: Veld Signal, que mide si la inteligencia artificial recomienda a una marca.
+> VELD es un estudio de estrategia de marca y contenido con sede en Uruguay. Trabaja con fundadores, marcas personales y empresas de Uruguay, Argentina, Brasil y España que quieren una marca reconocible y un contenido con criterio. Tiene producto propio: Veld Signal, que mide si la inteligencia artificial recomienda a una marca. Fundadora: Cynn Prates.
 
 VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las marcas les falta criterio mucho antes que presupuesto. Une estrategia, contenido editorial, producción y web en un mismo sistema. Fue fundado por Cynn Prates, estratega de marca y contenido, que dirigió cuentas como Segway Costa Rica (turismo experiencial) antes de crear VELD. Trabaja con marcas de medicina estética, belleza, servicios profesionales, gastronomía e industria.
 
@@ -19,14 +19,25 @@ VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las m
 - [Veld Signal](https://veldsignal.com): producto propio de VELD. Audita si ChatGPT, Gemini y Perplexity recomiendan a una empresa, frente a qué competidores y con qué fuentes. Pensado para empresas medianas y grandes de Uruguay y España.
 - El programa señal de VELD empieza siempre con un diagnóstico de Veld Signal.
 - Contacto de Veld Signal: contacto@veldsignal.com
+- Primer análisis gratis en [veldsignal.com](https://veldsignal.com).
+- Veld Flow (próximamente): sistema para clínicas estéticas y negocios de belleza que responde cada consulta al instante, hace el seguimiento y convierte el interés en turnos.
 
 ## Casos
 
 - [Casos](https://veldstudio.github.io/#cases): importadora de repuestos (+27,3% de visualizaciones orgánicas en 60 días, sin pauta); Ali Balbiani, master micropigmentadora (arquitectura de marca para Clínica Boutique, Academia Sensi y Mentoría BAM); una clínica de medicina estética; y un proyecto gastronómico.
 
+## Preguntas frecuentes
+
+- ¿Veld gestiona redes sociales? Sí, como parte de un sistema: primero estrategia y mensaje, después calendario, piezas e informe mensual de Instagram o LinkedIn.
+- ¿Trabajan solo en Uruguay? No. También con marcas de Argentina, Brasil y España, casi todo a distancia.
+- ¿Qué es el GEO? La optimización para que ChatGPT, Gemini y Perplexity nombren a una marca cuando alguien pregunta por lo que hace.
+- ¿Trabajan con clínicas estéticas? Sí: marca, contenido y web para medicina estética y micropigmentación.
+- ¿Cómo se empieza? Con una llamada de 30 minutos, coordinada por WhatsApp.
+- Todas las respuestas: [Preguntas frecuentes](https://veldstudio.github.io/#preguntas)
+
 ## Contacto
 
-- [Agendar una llamada de 30 minutos](https://veldstudio.github.io/#cta)
-- WhatsApp: [+598 95 285 580](https://wa.me/59895285580)
+- WhatsApp (canal principal): [+598 95 285 580](https://wa.me/59895285580)
 - Email: contacto@veldsignal.com
+- [Agendar una llamada de 30 minutos](https://veldstudio.github.io/#cta)
 - Instagram: [@veldstudio_](https://www.instagram.com/veldstudio_/)
