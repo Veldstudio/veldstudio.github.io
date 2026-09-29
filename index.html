@@ -71,9 +71,9 @@
 
     /* ── HERO — tipográfico, sin video ── */
     #hero{min-height:100svh;background:var(--obsidian);position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
-    .hero-img-bg{position:absolute;right:0;top:0;bottom:0;width:52%;z-index:0;}
-    .hero-img-bg img{width:100%;height:100%;object-fit:cover;object-position:96% center;filter:brightness(.8);}
-    .hero-img-fade{position:absolute;inset:0;background:linear-gradient(to right,var(--obsidian) 42%,transparent 100%);z-index:1;}
+    .hero-img-bg{position:absolute;right:0;top:0;bottom:0;width:100%;z-index:0;}
+    .hero-img-bg img{width:100%;height:100%;object-fit:cover;object-position:right center;}
+    .hero-img-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(28,28,26,.92) 0%,rgba(28,28,26,.7) 38%,rgba(28,28,26,0) 62%);z-index:1;}
     .hero-content{position:relative;z-index:2;padding:0 48px 56px;}
     .hero-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,197,169,.7);margin-bottom:24px;}
     .hero-h1{font-family:'Anton',sans-serif;font-size:clamp(52px,9.5vw,150px);line-height:.9;letter-spacing:-.025em;text-transform:lowercase;color:var(--white);max-width:1100px;}
@@ -413,7 +413,7 @@
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <section id="hero">
   <div class="hero-img-bg">
-    <img src="assets/senal-hero.jpg" alt="Personaje de marca de Veld Studio con anteojos rojos" loading="eager" fetchpriority="high"/>
+    <img src="assets/hero-criterio.jpg" alt="Una mujer con anteojos rojos, quieta, en medio de una multitud que filma con el celular" loading="eager" fetchpriority="high"/>
   </div>
   <div class="hero-img-fade"></div>
   <div class="hero-content">
@@ -483,7 +483,7 @@
 
 <!-- ═══════════════════ VIDEO BREAK ═══════════════════ -->
 <section id="video-break">
-  <video autoplay muted loop playsinline poster="assets/hero-fallback.jpg">
+  <video autoplay muted loop playsinline poster="assets/video-poster.jpg">
     <source src="assets/hero-video.mp4" type="video/mp4"/>
   </video>
   <div class="vb-overlay"></div>
