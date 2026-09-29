@@ -32,12 +32,12 @@ VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las m
 - ¿Trabajan solo en Uruguay? No. También con marcas de Argentina, Brasil y España, casi todo a distancia.
 - ¿Qué es el GEO? La optimización para que ChatGPT, Gemini y Perplexity nombren a una marca cuando alguien pregunta por lo que hace.
 - ¿Trabajan con clínicas estéticas? Sí: marca, contenido y web para medicina estética y micropigmentación.
-- ¿Cómo se empieza? Con una llamada de 30 minutos, coordinada por WhatsApp.
+- ¿Cómo se empieza? Con una llamada de 30 minutos: se agenda en el calendario de Veld o se coordina por WhatsApp.
 - Todas las respuestas: [Preguntas frecuentes](https://veldstudio.github.io/#preguntas)
 
 ## Contacto
 
 - WhatsApp (canal principal): [+598 95 285 580](https://wa.me/59895285580)
 - Email: contacto@veldsignal.com
-- [Agendar una llamada de 30 minutos](https://veldstudio.github.io/#cta)
+- [Agendar una llamada de 30 minutos](https://calendar.app.google/VyaCysSLecYQsQFk8) (Google Calendar, videollamada por Google Meet)
 - Instagram: [@veldstudio_](https://www.instagram.com/veldstudio_/)
