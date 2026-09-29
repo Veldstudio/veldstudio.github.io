@@ -203,6 +203,13 @@
     /* ABOUT — solo, sem foto */
     .about-solo{max-width:1200px;margin:0 auto;}
     .about-cols{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:40px;}
+    .about-top{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:end;}
+    .about-founder{display:block;text-decoration:none;color:inherit;}
+    .about-founder img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;display:block;filter:grayscale(15%);transition:filter .5s;}
+    .about-founder:hover img{filter:none;}
+    .about-founder-cap{display:block;margin-top:14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);line-height:2;}
+    .about-founder-cap b{font-weight:400;color:var(--white);}
+    .about-founder-go{color:var(--warm-sand);border-bottom:1px solid rgba(212,197,169,.4);}
     .about-col-left,.about-col-right{}
     .about-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin-bottom:36px;}
     .about-h{font-family:'Anton',sans-serif;font-size:clamp(32px,4.2vw,58px);letter-spacing:-.02em;text-transform:lowercase;color:var(--white);margin-bottom:32px;line-height:1.02;}
@@ -300,8 +307,10 @@
       nav{padding:22px 28px;}
       .nav-right .nav-link{display:none;}
       #hero .hero-content,#hero .hero-bottom{padding-left:28px;padding-right:28px;}
-      .hero-img-bg{display:none;}
-      .hero-img-fade{display:none;}
+      #hero{min-height:auto;padding-top:46svh;}
+      .hero-img-bg{display:block;bottom:auto;height:62svh;}
+      .hero-img-bg img{object-position:93% top;}
+      .hero-img-fade{display:block;background:linear-gradient(to bottom,rgba(28,28,26,.1) 0%,rgba(28,28,26,0) 20svh,rgba(28,28,26,.6) 44svh,var(--obsidian) 62svh);}
       .hero-sub{flex-direction:column;gap:24px;}
       #manifesto .manifesto-layout{grid-template-columns:1fr;}
       .manifesto-img-col{height:300px;}
@@ -319,6 +328,8 @@
       .svc-wide{grid-column:1/-1;grid-template-columns:1fr;}
       .svc-wide-img{height:240px;}
       .about-cols{grid-template-columns:1fr;gap:0;}
+      .about-top{grid-template-columns:1fr;gap:28px;}
+      .about-founder{max-width:300px;}
       .process-img-bg,.process-img-overlay{display:none;}
       .process-content{max-width:100%;}
       .cta-form{grid-template-columns:1fr;}
@@ -567,7 +578,6 @@
     <div class="gallery-strip">
       <img class="gallery-img" src="assets/food-gourmet.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/gallery-5.jpg" alt="" loading="lazy"/>
-      <img class="gallery-img" src="assets/service-produccion.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/gallery-6.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/food-burger.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/gallery-2.jpg" alt="" loading="lazy"/>
@@ -579,7 +589,6 @@
       <!-- duplicate for loop -->
       <img class="gallery-img" src="assets/food-gourmet.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/gallery-5.jpg" alt="" loading="lazy"/>
-      <img class="gallery-img" src="assets/service-produccion.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/gallery-6.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/food-burger.jpg" alt="" loading="lazy"/>
       <img class="gallery-img" src="assets/gallery-2.jpg" alt="" loading="lazy"/>
@@ -659,7 +668,7 @@
     <!-- WIDE: Complementos -->
     <div class="svc-wide">
       <div class="svc-wide-img">
-        <img src="assets/service-produccion.jpg" alt="Producción editorial Veld" loading="lazy"/>
+        <img src="assets/produccion-editorial.jpg" alt="Producción editorial de Veld Studio: retrato con anteojos rojos en medio de una multitud" loading="lazy" style="object-position:center 30%"/>
       </div>
       <div class="svc-wide-body">
         <div class="svc-inset-video">
@@ -711,8 +720,16 @@
 <!-- ═══════════════════ ABOUT ═══════════════════ -->
 <section id="about">
   <div class="about-solo">
-    <p class="about-label rv">02 · Quiénes somos</p>
-    <h2 class="about-h rv">una agencia.<br>un punto<br>de vista.</h2>
+    <div class="about-top">
+      <div>
+        <p class="about-label rv">02 · Quiénes somos</p>
+        <h2 class="about-h rv">una agencia.<br>un punto<br>de vista.</h2>
+      </div>
+      <a href="cynn-prates/" class="about-founder rv">
+        <img src="assets/cynn-prates.jpg" alt="Cynn Prates, fundadora de Veld Studio" loading="lazy"/>
+        <span class="about-founder-cap"><b>Cynn Prates</b> · Fundadora<br><span class="about-founder-go">Conocé su historia →</span></span>
+      </a>
+    </div>
     <div class="about-cols">
       <div class="about-col-left">
         <p class="about-p rv">Veld nació de una convicción simple: a la mayoría de las marcas les falta criterio mucho antes que presupuesto. Hay demasiado contenido publicado por inercia, demasiadas decisiones tomadas porque "así lo hace todo el mundo", demasiado miedo a tener una posición propia.</p>
