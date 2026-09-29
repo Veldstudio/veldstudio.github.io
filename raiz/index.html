@@ -79,6 +79,11 @@ h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(44px,6vw,90px)
 .step .when{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--warm-sand)}
 .step h3{font-family:'Anton',sans-serif;font-weight:400;font-size:32px;text-transform:lowercase;letter-spacing:-.02em;margin-top:14px}
 .step p{font-size:14px;line-height:1.8;color:rgba(255,255,255,.65);margin-top:12px}
+.deliv{border-top:1px solid rgba(28,28,26,.12)}
+.drow{display:grid;grid-template-columns:240px 1fr;gap:32px;padding:26px 0;border-bottom:1px solid rgba(28,28,26,.12)}
+.drow h3{font-family:'Anton',sans-serif;font-weight:400;font-size:24px;line-height:1.1;text-transform:lowercase;letter-spacing:-.01em;color:var(--obsidian)}
+.drow p{font-size:15px;line-height:1.85;color:#5f574c;max-width:640px}
+.dnote{font-size:13px;line-height:1.8;color:var(--ash);margin-top:28px;max-width:680px}
 .faq-list{border-top:1px solid rgba(28,28,26,.12)}
 .faq-item{border-bottom:1px solid rgba(28,28,26,.12)}
 .faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0;font-weight:400;font-size:clamp(16px,1.4vw,19px);color:var(--obsidian)}
@@ -117,6 +122,7 @@ footer{background:#141412;padding:64px 48px 40px}
  .two{grid-template-columns:1fr;gap:36px}
  .item{grid-template-columns:48px 1fr;gap:14px}
  .others{grid-template-columns:1fr}
+ .drow{grid-template-columns:1fr;gap:8px}
  .steps{grid-template-columns:1fr}.step{padding:28px 24px 32px}
  footer{padding:48px 28px 32px}.footer-top{flex-direction:column;align-items:flex-start;gap:28px}.footer-links{text-align:left}
  .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
@@ -153,7 +159,7 @@ footer{background:#141412;padding:64px 48px 40px}
 <section class="stone">
   <div class="wrap two">
     <div><div class="label">Qué incluye</div><h2 style="margin-top:18px">qué hacemos</h2><p class="lead">Lo que tu marca necesita para salir a la calle, y nada que sobre.</p></div>
-    <div class="items"><div class="item reveal"><div class="n">01</div><div><h3>Brief profundo y posicionamiento</h3><p>Arrancamos con las preguntas que incomodan: quién sos, a quién le hablás y por qué alguien te elegiría a vos. De ahí sale el posicionamiento.</p></div></div><div class="item reveal"><div class="n">02</div><div><h3>Identidad visual y naming, si hace falta</h3><p>Logo, paleta, tipografías y criterios de imagen. Si la marca todavía no tiene nombre, lo buscamos juntos.</p></div></div><div class="item reveal"><div class="n">03</div><div><h3>Tono de voz y guía editorial</h3><p>Cómo habla tu marca, qué dice y qué no, con ejemplos concretos para que cualquiera que escriba por ella suene igual.</p></div></div><div class="item reveal"><div class="n">04</div><div><h3>Landing de lanzamiento en 72 horas</h3><p>Una página propia con tu propuesta, diseñada y escrita por nosotros, lista para recibir consultas.</p></div></div><div class="item reveal"><div class="n">05</div><div><h3>Primeros 30 días de contenido listos</h3><p>Calendario, piezas y textos del primer mes, para que el lanzamiento no dependa de la inspiración de cada día.</p></div></div></div>
+    <div class="items"><div class="item reveal"><div class="n">01</div><div><h3>Brief profundo y posicionamiento</h3><p>Arrancamos con las preguntas que incomodan: quién sos, a quién le hablás y por qué alguien te elegiría a vos. De ahí sale el posicionamiento.</p></div></div><div class="item reveal"><div class="n">02</div><div><h3>Identidad visual y naming, si hace falta</h3><p>Logo, paleta, tipografías y criterios de imagen. Si la marca todavía no tiene nombre, lo buscamos juntos.</p></div></div><div class="item reveal"><div class="n">03</div><div><h3>Tono de voz y guía editorial</h3><p>Cómo habla tu marca, qué dice y qué no, con ejemplos concretos para que cualquiera que escriba por ella suene igual.</p></div></div><div class="item reveal"><div class="n">04</div><div><h3>Landing de lanzamiento en 72 horas</h3><p>Una página propia con tu propuesta, diseñada y escrita por nosotros, lista para recibir consultas. La publicamos 72 horas después de que aprobás la identidad.</p></div></div><div class="item reveal"><div class="n">05</div><div><h3>Primeros 30 días de contenido listos</h3><p>Calendario, piezas y textos del primer mes, para que el lanzamiento no dependa de la inspiración de cada día.</p></div></div></div>
   </div>
 </section>
 
@@ -163,6 +169,13 @@ footer{background:#141412;padding:64px 48px 40px}
     <h2 style="margin:18px 0 48px">el proceso</h2>
     <div class="steps"><div class="step reveal"><div class="when">Primero</div><h3>brief y posicionamiento</h3><p>Entrevistas, análisis de tu mercado y de la competencia. Definimos qué lugar va a ocupar tu marca.</p></div><div class="step reveal"><div class="when">Después</div><h3>identidad y tono</h3><p>Imagen, nombre si hace falta y la guía de cómo habla la marca.</p></div><div class="step reveal"><div class="when">Al final</div><h3>landing y contenido</h3><p>Publicamos la landing y dejamos listo el primer mes de contenido para el lanzamiento.</p></div></div>
     
+  </div>
+</section>
+
+<section class="stone">
+  <div class="wrap two">
+    <div><div class="label">Entregables</div><h2 style="margin-top:18px">qué te llevás</h2><p class="lead">Todo lo que queda en tus manos cuando termina raíz.</p></div>
+    <div><div class="deliv"><div class="drow reveal"><h3>Documento de estrategia</h3><p>Una sesión de brief de 90 minutos, análisis de 3 a 5 competidores y el posicionamiento por escrito: público, propuesta de valor y mensaje central.</p></div><div class="drow reveal"><h3>Identidad visual</h3><p>Logo en versión principal, secundaria e ícono, paleta, 2 tipografías y criterios de imagen. Manual corto de 8 a 12 páginas y archivos en PNG, SVG y PDF.</p></div><div class="drow reveal"><h3>Naming, si hace falta</h3><p>Hasta 3 propuestas de nombre, con chequeo básico de dominio e Instagram.</p></div><div class="drow reveal"><h3>Guía de tono</h3><p>Cómo habla la marca, palabras que sí y que no, y ejemplos para Instagram, WhatsApp y la web.</p></div><div class="drow reveal"><h3>Landing publicada</h3><p>Una página diseñada y escrita por nosotros, con botón de WhatsApp o formulario. Queda online 72 horas después de que aprobás la identidad.</p></div><div class="drow reveal"><h3>Primer mes de contenido</h3><p>Calendario de 30 días y 12 piezas con texto: 8 posts o carruseles y 4 reels con guion. También la bio de Instagram y las destacadas.</p></div></div><p class="dnote">Incluye 2 rondas de ajustes en identidad y landing. El dominio y el hosting quedan a tu nombre y los pagás directo. La publicación diaria no está incluida: si la querés, sigue con el acompañamiento mensual.</p></div>
   </div>
 </section>
 
