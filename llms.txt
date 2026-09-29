@@ -7,7 +7,7 @@ VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las m
 ## Programas
 
 - [raíz](https://veldstudio.github.io/raiz/): para marcas que arrancan. Posicionamiento, identidad visual y naming, tono de voz, landing de lanzamiento en 72 horas y primeros 30 días de contenido. Duración: 6 semanas.
-- [orden](https://veldstudio.github.io/orden/): para marcas con años de trabajo que necesitan ordenarse. Auditoría de marca, Instagram y web, arquitectura de marca, sistema de contenido con informe mensual y ajuste de la web. Duración: 8 semanas.
+- [orden](https://veldstudio.github.io/orden/): para marcas con años de trabajo que necesitan ordenarse. Auditoría de marca, Instagram y web, arquitectura de marca, sistema de contenido con calendario y plantillas, y ajuste de la web. Duración: 8 semanas.
 - [señal](https://veldstudio.github.io/senal/): para que ChatGPT, Gemini, Claude y Perplexity recomienden la marca. Diagnóstico con Veld Signal, plan de mejoras, optimización GEO y SEO, contenido citable por la IA y medición mensual. Diagnóstico en 7 días, implementación en 90.
 
 ## Complementos
