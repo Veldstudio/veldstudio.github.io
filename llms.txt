@@ -24,7 +24,7 @@ VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las m
 
 ## Casos
 
-- [Casos](https://veldstudio.github.io/#cases): importadora de repuestos (+27,3% de visualizaciones orgánicas en 60 días, sin pauta); Ali Balbiani, master micropigmentadora (arquitectura de marca para Clínica Boutique, Academia Sensi y Mentoría BAM); una clínica de medicina estética; y un proyecto gastronómico.
+- [Casos](https://veldstudio.github.io/#cases): importadora de repuestos (+27,3% de visualizaciones orgánicas en 60 días, sin pauta); [Ali Balbiani](https://veldstudio.github.io/casos/ali-balbiani/), master micropigmentadora (arquitectura de marca para Ali Balbiani Clinique & Academy: clínica, Academia Sensi y Mentoría BAM, más plan comercial, dos revistas impresas y el lanzamiento de Código Secreto); una clínica de medicina estética; y un proyecto gastronómico.
 
 ## Preguntas frecuentes
 
