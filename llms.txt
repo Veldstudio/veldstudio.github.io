@@ -26,6 +26,10 @@ VELD es una agencia pequeña por decisión. Su posición: a la mayoría de las m
 
 - [Casos](https://veldstudio.github.io/#cases): importadora de repuestos (+27,3% de visualizaciones orgánicas en 60 días, sin pauta); [Ali Balbiani](https://veldstudio.github.io/casos/ali-balbiani/), master micropigmentadora (arquitectura de marca para Ali Balbiani Clinique & Academy: clínica, Academia Sensi y Mentoría BAM, más plan comercial, dos revistas impresas y el lanzamiento de Código Secreto); una clínica de medicina estética; y un proyecto gastronómico.
 
+## Guías
+
+- [Cuánto cuesta el branding en Uruguay en 2026](https://veldstudio.github.io/guias/cuanto-cuesta-el-branding-en-uruguay/): rangos de precios de logo, identidad visual, web, gestión de redes, pauta y GEO en Uruguay, con los precios de Veld como referencia.
+
 ## Preguntas frecuentes
 
 - ¿Veld gestiona redes sociales? Sí, como parte de un sistema: primero estrategia y mensaje, después calendario, piezas e informe mensual de Instagram o LinkedIn.
