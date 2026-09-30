@@ -248,17 +248,25 @@
     .lw-cta{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--white);border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:3px;text-decoration:none;transition:border-color .25s;}
     .lw-cta:hover{border-color:var(--white);}
     /* screenshot grid */
-    .lw-screens{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:rgba(255,255,255,.04);}
-    .lw-screen{overflow:hidden;position:relative;}
-    .lw-screen img{width:100%;height:320px;object-fit:cover;object-position:top;display:block;filter:brightness(.85);transition:filter .6s,transform .7s;}
-    .lw-screen:hover img{filter:brightness(1);transform:scale(1.03);}
-    .lw-screen.featured{grid-column:1/-1;}
-    .lw-screen.featured img{height:420px;}
-    .lw-screen-label{position:absolute;bottom:16px;left:16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+    .lw-show{max-width:1080px;margin:0 auto;padding:0 48px;}
+    .lw-stage{display:grid;}
+    .lw-card{grid-area:1/1;margin:0;opacity:0;transform:translateX(40px);transition:opacity .9s var(--ease-expo),transform .9s var(--ease-expo);pointer-events:none;}
+    .lw-card.is-on{opacity:1;transform:none;pointer-events:auto;}
+    .lw-card.is-out{opacity:0;transform:translateX(-40px);}
+    .lw-frame{border:1px solid rgba(212,197,169,.18);background:#111;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);}
+    .lw-bar{height:28px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#1a1a18;border-bottom:1px solid rgba(255,255,255,.06);}
+    .lw-bar i{width:7px;height:7px;border-radius:50%;background:rgba(212,197,169,.28);}
+    .lw-frame img{width:100%;height:auto;display:block;}
+    .lw-card figcaption{display:flex;justify-content:space-between;gap:16px;padding-top:16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.38);}
+    .lw-card figcaption b{font-weight:500;color:var(--warm-sand);}
+    .lw-dots{display:flex;gap:10px;margin-top:22px;}
+    .lw-dots button{width:28px;height:2px;padding:0;border:0;background:rgba(212,197,169,.22);cursor:pointer;transition:background .4s;}
+    .lw-dots button.is-on{background:var(--warm-sand);}
+    @media(prefers-reduced-motion:reduce){.lw-card{transition:none;}}
     @media(max-width:960px){
       .lw-top{grid-template-columns:1fr;gap:32px;padding:0 28px 48px;}
-      .lw-screens{grid-template-columns:1fr;}
-      .lw-screen img,.lw-screen.featured img{height:240px;}
+      .lw-show{padding:0 20px;}
+      .lw-card figcaption{flex-direction:column;gap:4px;}
       #landing-web{padding:80px 0 100px;}
     }
 
@@ -824,19 +832,22 @@
       <a href="#cta" class="lw-cta">Pedir una cotización →</a>
     </div>
   </div>
-  <div class="lw-screens">
-    <div class="lw-screen featured">
-      <img src="assets/landing-screen-1.jpg" alt="Landing page · Veld" loading="lazy"/>
-      <span class="lw-screen-label">Restaurante · Parrilla & Vinos · Uruguay</span>
+  <div class="lw-show">
+    <div class="lw-stage">
+      <figure class="lw-card is-on">
+        <div class="lw-frame"><div class="lw-bar"><i></i><i></i><i></i></div><img src="assets/landing-screen-2.jpg" alt="Landing de Teodoro, parrilla y vinos en Punta del Este" loading="lazy"/></div>
+        <figcaption><b>Teodoro</b><span>Parrilla & vinos · Punta del Este</span></figcaption>
+      </figure>
+      <figure class="lw-card">
+        <div class="lw-frame"><div class="lw-bar"><i></i><i></i><i></i></div><img src="assets/landing-screen-3.jpg" alt="Landing del evento Código Secreto Experience" loading="lazy"/></div>
+        <figcaption><b>Código Secreto</b><span>Evento · Marca personal · Montevideo</span></figcaption>
+      </figure>
+      <figure class="lw-card">
+        <div class="lw-frame"><div class="lw-bar"><i></i><i></i><i></i></div><img src="assets/landing-screen-1.jpg" alt="Sección de experiencia de la web de Teodoro" loading="lazy"/></div>
+        <figcaption><b>Teodoro</b><span>Galería y reservas · Web completa</span></figcaption>
+      </figure>
     </div>
-    <div class="lw-screen">
-      <img src="assets/landing-screen-2.jpg" alt="Landing page · Veld" loading="lazy"/>
-      <span class="lw-screen-label">Micropigmentación · Marca personal · Latam</span>
-    </div>
-    <div class="lw-screen">
-      <img src="assets/landing-screen-3.jpg" alt="Landing page · Veld" loading="lazy"/>
-      <span class="lw-screen-label">Evento · Marca personal · Uruguay</span>
-    </div>
+    <div class="lw-dots"><button type="button" aria-label="Ver proyecto 1" class="is-on"></button><button type="button" aria-label="Ver proyecto 2"></button><button type="button" aria-label="Ver proyecto 3"></button></div>
   </div>
 </section>
 
@@ -1028,6 +1039,15 @@ document.getElementById('contactForm').addEventListener('submit',e=>{
   btn.classList.add('sent');
   setTimeout(()=>{btn.textContent='Enviar por WhatsApp →';btn.classList.remove('sent');},4000);
 });
+</script>
+<script>
+(function(){const st=document.querySelector('.lw-stage');if(!st)return;const cs=[...st.children],ds=[...document.querySelectorAll('.lw-dots button')];let i=0,t;
+function go(n){const o=cs[i];o.classList.remove('is-on');o.classList.add('is-out');ds[i].classList.remove('is-on');setTimeout(()=>o.classList.remove('is-out'),900);i=(n+cs.length)%cs.length;cs[i].classList.add('is-on');ds[i].classList.add('is-on');}
+function run(){clearInterval(t);t=setInterval(()=>go(i+1),4200);}
+ds.forEach((d,k)=>d.addEventListener('click',()=>{if(k!==i)go(k);run();}));
+const sh=document.querySelector('.lw-show');sh.addEventListener('mouseenter',()=>clearInterval(t));sh.addEventListener('mouseleave',run);
+let x0=null;st.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});st.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));run();}x0=null;});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)run();})();
 </script>
 </body>
 </html>
